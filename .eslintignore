@@ -1,0 +1,7 @@
+coverage/
+documentation/
+lib/
+test/jest.setup.js
+.eslintrc.js
+jest.config.js
+webpack.config.js

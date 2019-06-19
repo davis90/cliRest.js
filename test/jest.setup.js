@@ -1,0 +1,1 @@
+fetch = require('jest-fetch-mock');

@@ -1,4 +1,1 @@
-# cliRest.js
-Simple REST client
-
-/!\ WORK IN PROGRESS
+/!\ Work in progress

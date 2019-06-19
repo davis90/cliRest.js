@@ -1,0 +1,15 @@
+.idea/
+coverage/
+documentation/
+node_modules/
+src/
+test/
+.babelrc
+.browserslistrc
+.eslintignore
+.eslintrc.js
+.gitignore
+.travis.yml
+_config.yml
+webpack.config.js
+
