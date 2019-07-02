@@ -47,7 +47,6 @@
   },
   "dependencies": {
     "lodash": "^4.17.11",
-    "arkitect.js": "^1.1.4",
     "normalize-url": "^4.2.0"
   },
   "engines": {
