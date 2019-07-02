@@ -6,15 +6,23 @@ import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
 import isObject from 'lodash/isObject';
 import normalizeUrl from 'normalize-url';
-import InterfaceCrud from '@/crud/InterfaceCrud';
 import mergeCrudConfig from '@/crud/mergeCrudConfig';
+import isCrud from '@/utils/isCrud';
 
-export default function (apiUrl, crud, actionConfig,
+/**
+ * Create a new action object
+ * @param {string} apiUrl - url of the api
+ * @param {Object} crud - crud object
+ * @param {Object} actionConfig - configutation of action
+ * @param {Object} options - options of the action
+ * @returns {Object} new action object
+ */
+function actionFactory(apiUrl, crud, actionConfig,
   { crudConfig, crudConfigMerge = mergeCrudConfig } = {}) {
   if (!isString(apiUrl) || isEmpty(apiUrl)) {
     throw TypeError('actionFactory : apiUrl must be a non-empty string');
   }
-  if (isNil(crud) || !InterfaceCrud.implements(crud)) {
+  if (isNil(crud) || !isCrud(crud)) {
     throw TypeError('actionFactory : crud must implement InterfaceCrud');
   }
   if (!isPlainObject(actionConfig)) {
@@ -49,3 +57,5 @@ export default function (apiUrl, crud, actionConfig,
     return crud[actionConfig.method](updatedUrl, options);
   };
 }
+
+export default actionFactory;

@@ -30,8 +30,8 @@ const defaultCrud = {
    * Create object on API
    * @param {string} url - Url to create object on API
    * @param {options} options - Url to create object on API
-   * @param {object} options.crudConfig - config
-   * @param {object} options.data - Content of the object to create
+   * @param {Object} options.crudConfig - config
+   * @param {Object} options.data - Content of the object to create
    * @returns {Promise} return promise to wait response of API
    */
   create: (url, { crudConfig, data } = {}) => callFetch(url, crudConfig, { method: 'POST', body: data }),

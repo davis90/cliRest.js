@@ -2,10 +2,10 @@ import isNil from 'lodash/isNil';
 import isEmpty from 'lodash/isEmpty';
 import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
-import InterfaceCrud from '@/crud/InterfaceCrud';
 import defaultCrud from '@/crud/defaultCrud';
 import ressourceFactory from '@/api/ressourceFactory';
 import mergeCrudConfig from '@/crud/mergeCrudConfig';
+import isCrud from '@/utils/isCrud';
 
 const privateProps = new WeakMap();
 
@@ -17,7 +17,7 @@ class Api {
    * @param {string} url - Url of the API
    * @param {Object} options - default config object to use for crud
    */
-  constructor(url, crud, { crudConfig, crudConfigMerge } = {}) {
+  constructor(url, crud, { crudConfig, crudConfigMerge }) {
     privateProps.set(this, {
       url,
       ressources: [],
@@ -27,6 +27,12 @@ class Api {
     });
   }
 
+  /**
+   * Add a ressource to the Api instance
+   * @param {string} ressourceName - name of the ressource
+   * @param {Object} options - options of the new ressource
+   * @returns {Api} return current api instance
+   */
   addRessource(ressourceName, { actionsConfig, crudConfig, ressourcePath } = {}) {
     const { crudConfigMerge } = privateProps.get(this);
     const ressourceCrudConfig = crudConfigMerge(crudConfig, this.crudConfig);
@@ -41,29 +47,51 @@ class Api {
     return this;
   }
 
+  /**
+   * Get url of the api
+   * @returns {string} the url of the api
+   */
   get url() {
     return privateProps.get(this).url;
   }
 
+  /**
+   * Get crud object of the api
+   * @returns {Object} the crud object of the api
+   */
   get crud() {
     return privateProps.get(this).crud;
   }
 
+  /**
+   * Get crud config object of the api
+   * @returns {Object} the crud config object of the api
+   */
   get crudConfig() {
     return privateProps.get(this).crudConfig;
   }
 
+  /**
+   * Get ressource names
+   * @returns {Array<string>} array of ressource names
+   */
   get ressources() {
     return privateProps.get(this).ressources.slice();
   }
 }
 
-export default function (url,
+/**
+ * Create a new api instance
+ * @param {string} url - url of the api
+ * @param {Object} options - options of the action
+ * @returns {Object} new action object
+ */
+function apiFactory(url,
   { crud = defaultCrud, crudConfig, crudConfigMerge = mergeCrudConfig } = {}) {
   if (!isString(url) || isEmpty(url)) {
     throw TypeError('apiFactory : url must be a non-empty string');
   }
-  if (isNil(crud) || !InterfaceCrud.implements(crud)) {
+  if (isNil(crud) || !isCrud(crud)) {
     throw TypeError('apiFactory : crud have to implement InterfaceCrud');
   }
   if (!isFunction(crudConfigMerge)) {
@@ -71,3 +99,5 @@ export default function (url,
   }
   return new Api(url, crud, { crudConfig, crudConfigMerge });
 }
+
+export default apiFactory;

@@ -2,7 +2,7 @@ import defaultCrud from '@/crud/defaultCrud';
 
 describe('defaultCrud', () => {
   it('create', async () => {
-    expect.assertions(6);
+    expect.assertions(8);
     const objectToCreate = { id: '4', name: 'test 4' };
     let url = 'http://cliRest_.js/test/1';
     let error = `network error : ${url}`;
@@ -13,9 +13,21 @@ describe('defaultCrud', () => {
     url = 'https://cliRest.js/tes_t/1';
     error = 'unknown url';
     fetch.mockResponseOnce(JSON.stringify({ error }), { status: 404 });
-    await defaultCrud.create(url, { data: objectToCreate })
+    await defaultCrud.create(url)
       .catch((response) => {
         expect(response.status).toEqual(404);
+        return response.json();
+      })
+      .then((response) => {
+        expect(response.error).toEqual(error);
+      });
+
+    url = 'https://cliRest.js/test/1';
+    error = 'invalid data';
+    fetch.mockResponseOnce(JSON.stringify({ error }), { status: 400 });
+    await defaultCrud.create(url)
+      .catch((response) => {
+        expect(response.status).toEqual(400);
         return response.json();
       })
       .then((response) => {
@@ -136,7 +148,7 @@ describe('defaultCrud', () => {
   });
 
   it('modify', async () => {
-    expect.assertions(6);
+    expect.assertions(8);
     let url = 'http://cliRest_.js/test/1';
     let error = `network error : ${url}`;
     const objectToUpdate = { id: '4', name: 'test 4!' };
@@ -150,6 +162,18 @@ describe('defaultCrud', () => {
     await defaultCrud.modify(url, { data: objectToUpdate })
       .catch((response) => {
         expect(response.status).toEqual(404);
+        return response.json();
+      })
+      .then((response) => {
+        expect(response.error).toEqual(error);
+      });
+
+    url = 'http://cliRest.js/test/1';
+    error = 'invalid data';
+    fetch.mockResponseOnce(JSON.stringify({ error }), { status: 400 });
+    await defaultCrud.modify(url)
+      .catch((response) => {
+        expect(response.status).toEqual(400);
         return response.json();
       })
       .then((response) => {
@@ -170,7 +194,7 @@ describe('defaultCrud', () => {
   });
 
   it('replace', async () => {
-    expect.assertions(8);
+    expect.assertions(10);
     let url = 'http://cliRest_.js/test/1';
     let error = `network error : ${url}`;
     const objectToUpdate = { id: '4', name: 'test 4!' };
@@ -184,6 +208,18 @@ describe('defaultCrud', () => {
     await defaultCrud.replace(url, { data: objectToUpdate })
       .catch((response) => {
         expect(response.status).toEqual(404);
+        return response.json();
+      })
+      .then((response) => {
+        expect(response.error).toEqual(error);
+      });
+
+    url = 'http://cliRest.js/tes_t/1';
+    error = 'invalid data';
+    fetch.mockResponseOnce(JSON.stringify({ error }), { status: 400 });
+    await defaultCrud.replace(url)
+      .catch((response) => {
+        expect(response.status).toEqual(400);
         return response.json();
       })
       .then((response) => {
@@ -205,7 +241,7 @@ describe('defaultCrud', () => {
     url = 'http://cliRest.js/test/4';
     error = 'object must be complete';
     fetch.mockResponseOnce(JSON.stringify({ error }), { status: 400 });
-    await defaultCrud.replace(url, { id: '4' })
+    await defaultCrud.replace(url, { data: { id: '4' } })
       .catch((response) => {
         expect(response.status).toEqual(400);
         return response.json();

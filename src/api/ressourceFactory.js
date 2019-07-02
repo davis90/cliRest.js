@@ -3,12 +3,18 @@ import isPlainObject from 'lodash/isPlainObject';
 import isEmpty from 'lodash/isEmpty';
 import defaultTo from 'lodash/defaultTo';
 import isString from 'lodash/isString';
-import InterfaceCrud from '@/crud/InterfaceCrud';
-import isRessourceName from '@/utils/isRessourceName';
-import isRessourcePath from '@/utils/isRessourcePath';
 import actionFactory from '@/api/actionFactory';
 import mergeCrudConfig from '@/crud/mergeCrudConfig';
+import isRessourceName from '@/utils/isRessourceName';
+import isRessourcePath from '@/utils/isRessourcePath';
+import isCrud from '@/utils/isCrud';
 
+
+/**
+ * Get default actions config object
+ * @param {string} path -  url of the API
+ * @returns {Object} new default action config object
+ */
 const getDefaultActionsConfig = (path) => {
   const defUrlWithId = `${path}/{}`;
   return {
@@ -21,7 +27,15 @@ const getDefaultActionsConfig = (path) => {
   };
 };
 
-export default function (name, apiUrl, crud, {
+/**
+ * Create a new ressource object
+ * @param {string} name - name of the ressource
+ * @param {string} apiUrl - url of the api
+ * @param {Object} crud - crud object
+ * @param {Object} options - options of the ressource
+ * @returns {Object} new ressource object
+ */
+function ressourceFactory(name, apiUrl, crud, {
   actionsConfig, path, crudConfig, crudConfigMerge = mergeCrudConfig,
 } = {}) {
   if (!isRessourceName(name)) {
@@ -30,7 +44,7 @@ export default function (name, apiUrl, crud, {
   if (!isString(apiUrl) || isEmpty(apiUrl)) {
     throw TypeError('ressourceFactory : apiUrl must be a non-empty string');
   }
-  if (isNil(crud) || !InterfaceCrud.implements(crud)) {
+  if (isNil(crud) || !isCrud(crud)) {
     throw TypeError('ressourceFactory : crud must implement InterfaceCrud');
   }
   if (!isNil(path) && !isRessourcePath(path)) {
@@ -50,3 +64,5 @@ export default function (name, apiUrl, crud, {
 
   return ressource;
 }
+
+export default ressourceFactory;

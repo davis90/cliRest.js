@@ -18,6 +18,14 @@ describe('ressourceFactory', () => {
     });
   });
 
+  it('invalid apiUrl parameter', () => {
+    const err = /apiUrl/;
+    const apiUrl = 'http://clirest.com/api/';
+    [null, undefined, {}, [], 15, true, ''].forEach((v) => {
+      expect(bindRessourceFact('test', v, mockCrud)).toThrow(err);
+    });
+  });
+
   it('invalid crud parameter', () => {
     const err = /crud/;
     const apiUrl = 'http://clirest.com/api/';
@@ -31,6 +39,14 @@ describe('ressourceFactory', () => {
     const apiUrl = 'http://clirest.com/api/';
     [[], true, 5].forEach((v) => {
       expect(bindRessourceFact('test', apiUrl, mockCrud, { actionsConfig: v })).toThrow(err);
+    });
+  });
+
+  it('invalid path parameter', () => {
+    const err = /path/;
+    const apiUrl = 'http://clirest.com/api/';
+    [{}, [], 15, true, ''].forEach((v) => {
+      expect(bindRessourceFact('test', apiUrl, mockCrud, { path: v })).toThrow(err);
     });
   });
 

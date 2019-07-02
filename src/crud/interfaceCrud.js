@@ -7,11 +7,11 @@ export default {
     input: {
       url: 'string',
       options: {
-        crudConfig: 'object',
-        data: 'object'
-      }
+        crudConfig: 'Object',
+        data: 'Object',
+      },
     },
-    output: 'Promise'
+    output: 'Promise',
   },
 
   /**
@@ -22,10 +22,10 @@ export default {
     input: {
       url: 'string',
       options: {
-        crudConfig: 'object'
-      }
+        crudConfig: 'Object',
+      },
     },
-    output: 'Promise'
+    output: 'Promise',
   },
 
   /**
@@ -36,11 +36,11 @@ export default {
     input: {
       url: 'string',
       options: {
-        crudConfig: 'object',
-        data: 'object'
-      }
+        crudConfig: 'Object',
+        data: 'Object',
+      },
     },
-    output: 'Promise'
+    output: 'Promise',
   },
 
   /**
@@ -51,11 +51,11 @@ export default {
     input: {
       url: 'string',
       options: {
-        crudConfig: 'object',
-        data: 'object'
-      }
+        crudConfig: 'Object',
+        data: 'Object',
+      },
     },
-    output: 'Promise'
+    output: 'Promise',
   },
 
   /**
@@ -66,9 +66,9 @@ export default {
     input: {
       url: 'string',
       options: {
-        crudConfig: 'object'
-      }
+        crudConfig: 'Object',
+      },
     },
-    output: 'Promise'
-  }
+    output: 'Promise',
+  },
 };

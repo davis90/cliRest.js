@@ -47,6 +47,14 @@ describe('apiFactory', () => {
   });
 
   it('valid parameters #2', () => {
+    const apiUrl = 'https://apiUrl.fr/';
+    const api = apiFactory(apiUrl);
+    expect(api.url).toBe(apiUrl);
+    expect(api.crud).toBe(defaultCrud);
+    expect(api.ressources).toEqual([]);
+  });
+
+  it('valid parameters #3', () => {
     const apiUrl = 'https://apiUrl2.fr/';
     const crudConfig = { a: 'b', b: 'coucou2' };
     const api = apiFactory(apiUrl, { crudConfig, crud: mockCrud });
@@ -64,7 +72,7 @@ describe('apiFactory', () => {
     expect(typeof api.test.delete).toEqual('function');
   });
 
-  it('valid parameters #3', () => {
+  it('valid parameters #4', () => {
     const apiUrl = 'https://apiUrl3.fr/';
     const api = apiFactory(apiUrl, { crud: mockCrud });
     const actionsConfig = {
