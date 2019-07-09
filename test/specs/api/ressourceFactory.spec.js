@@ -20,7 +20,6 @@ describe('ressourceFactory', () => {
 
   it('invalid apiUrl parameter', () => {
     const err = /apiUrl/;
-    const apiUrl = 'http://clirest.com/api/';
     [null, undefined, {}, [], 15, true, ''].forEach((v) => {
       expect(bindRessourceFact('test', v, mockCrud)).toThrow(err);
     });
