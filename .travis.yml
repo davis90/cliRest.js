@@ -30,6 +30,7 @@ deploy:
   skip_cleanup: true
   provider: npm
   email: "davis_france@hotmail.com"
-  api_key: ""
+  api_key:
+    secure: RTt/LD6eCCmgUuUELba9Iwgue6itokYvQBMwY96UUl7p/ucBBkk0sBhvuz5zrIQWJohZu9pfIKJ4k2Ks7QloYDlINLB4auMfHQpGyLEFG0VWZGKw9LBufksrjNza3Es+8FhiweoHaakn0VuI2MUZcF0YWVBzshCwjWfQdWbYfjih3B+TVvFQVawYFvbSCtr4xoZV4p8FizD6eagDG3NCDJL5WbOm9QInWj4X6VjwoNHqBzl0jvCUo9yCKqVTrC9mzk/FAyxdk2QNSy6t/kltdVZs8LMhSi/yIOSqMjS2FPUHCdPX/1pPE3/MCiIrhswxFtfW26mLCYraIuCs+MfGw75TIUtJd2KoP7Fuu8iR1G3XFiB8VtoKWZJWjup1ywFZUwJWZ5x3KdI12GI0cVfA8M3448TjDc+WVp5zMsQGiNs0h7oU5keLG/4Cjs/TlQz6RLJ3u1IUM/u8FhiMSjbJxzF/WLQ9/LWVTuc/YsIudoao2erffKWzR/f9g+UCzVLgyILurGIffVwiW727Vs/Y/zBVNWqzyrTaHnN+uxwjAZkhtzK+MfF+oroDXCJBAGMGGvJYV3hXmWUiQncvrny6IFofltkJeXZlt3v737G0xvFZx0/SfnE96iHFtfhde5PtTf9cpxveQ5bGh5ZndLOsNhRd/hOR5ZhyBBln4c0NMUk=
   on:
     tags: true
