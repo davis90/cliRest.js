@@ -1,36 +1,28 @@
 language: node_js
-
 node_js:
-  - stable
-
+- stable
 env:
-  - DISPLAY=:99.0
-
+- DISPLAY=:99.0
 addons:
   apt:
     sources:
-      - google-chrome
+    - google-chrome
     packages:
-      - google-chrome-stable
-
+    - google-chrome-stable
 before_install:
-  - sh -e /etc/init.d/xvfb start
-
+- sh -e /etc/init.d/xvfb start
 install:
-  - npm install
-
+- npm install
 script:
-  - npm run lint
-  - npm run test
-  - npm run build:prod
-
-after_script: "cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js"
-
+- npm run lint
+- npm run test
+- npm run build:prod
+after_script: cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
 deploy:
   skip_cleanup: true
   provider: npm
-  email: "davis_france@hotmail.com"
+  email: davis_france@hotmail.com
   api_key:
-    secure: RTt/LD6eCCmgUuUELba9Iwgue6itokYvQBMwY96UUl7p/ucBBkk0sBhvuz5zrIQWJohZu9pfIKJ4k2Ks7QloYDlINLB4auMfHQpGyLEFG0VWZGKw9LBufksrjNza3Es+8FhiweoHaakn0VuI2MUZcF0YWVBzshCwjWfQdWbYfjih3B+TVvFQVawYFvbSCtr4xoZV4p8FizD6eagDG3NCDJL5WbOm9QInWj4X6VjwoNHqBzl0jvCUo9yCKqVTrC9mzk/FAyxdk2QNSy6t/kltdVZs8LMhSi/yIOSqMjS2FPUHCdPX/1pPE3/MCiIrhswxFtfW26mLCYraIuCs+MfGw75TIUtJd2KoP7Fuu8iR1G3XFiB8VtoKWZJWjup1ywFZUwJWZ5x3KdI12GI0cVfA8M3448TjDc+WVp5zMsQGiNs0h7oU5keLG/4Cjs/TlQz6RLJ3u1IUM/u8FhiMSjbJxzF/WLQ9/LWVTuc/YsIudoao2erffKWzR/f9g+UCzVLgyILurGIffVwiW727Vs/Y/zBVNWqzyrTaHnN+uxwjAZkhtzK+MfF+oroDXCJBAGMGGvJYV3hXmWUiQncvrny6IFofltkJeXZlt3v737G0xvFZx0/SfnE96iHFtfhde5PtTf9cpxveQ5bGh5ZndLOsNhRd/hOR5ZhyBBln4c0NMUk=
+    secure: MvITMryegqpJfiAkZbU3G2rFxUV9z6r0t/dYJG7aZwBVYUnRPENZsf6sLFdjnV7iCt3SeUZSXK7E7IZMhPbOeBCWTT8gl8rzDWg2mAGo+2Luou2NsXwPMSkuqxmXv77OzYkFl4N8G5kRZoceKqy+R/cCRSVCYTgo+0SJso9LtRYDTw2RsM1+WqY1VK8mYC2iVS0GvBWcyBLq8l64fHiU9WMJy2QgcftO0ZD8FhA0NXJBXNCOw0RniDDvfJCcmvNt/ZI/eHwO/cpU4wlcWPAjxvtQHIqQdYOpInFaOY+E/8VsL6aK4hGBXij00QkMqJqHOTD7gsnxUFpHaySGROjGeMJbZCrnlGRz969IA6pkiXluCfJw8ejY5hGdZHciTGyumAh4KZbWeoW+r0qJX8LW0MGB0xECH9r7VI1vReSuZewFu9kcHMPzy8sqFYeMaxRkDeaoZp+Rr/zbrI0n8vbgWhMkbOm6Zzn7JoQSSJ9ep+rxECm6LMENpYylvZPuD6uXDIXpAg1Fb+U+qFvSBye8PZ1PF12OJHezBbMr0vURmQ6SlEWSUCAEuUQp9Q+Bk0e73XVQHNAmkMUHYzalCG3UWQasDk3wDIFn3d4Q9xNDCpxu+yE3rsXF0yiSyj4/YGWYAjXjmMLD7aEM2PQ3dFGaXuxS6rX4ROphsJYnKoo94qU=
   on:
     tags: true
