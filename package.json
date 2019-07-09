@@ -11,7 +11,9 @@
     "build": "npm run doc && npm run build:prod && npm run build:dev",
     "build:prod": "webpack --mode production --output-filename [name].[hash].min.js",
     "build:dev": "webpack --mode development --output-filename [name].[hash].js",
-    "lint": "eslint . --ignore-path ./.eslintignore"
+    "lint": "eslint . --ignore-path ./.eslintignore",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "person": {
     "name": "davis90",
@@ -47,10 +49,12 @@
   },
   "dependencies": {
     "lodash": "^4.17.11",
-    "normalize-url": "^4.2.0"
+    "normalize-url": "^4.2.0",
+    "snyk": "^1.192.4"
   },
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
-  }
+  },
+  "snyk": true
 }
