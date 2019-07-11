@@ -23,6 +23,6 @@ deploy:
   provider: npm
   email: davis_france@hotmail.com
   api_key:
-    secure: $NPM_API_KEY
+    secure: ${NPM_API_KEY}
   on:
     tags: true
