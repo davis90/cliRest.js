@@ -23,6 +23,6 @@ deploy:
   provider: npm
   email: davis_france@hotmail.com
   api_key:
-    secure: ${NPM_API_KEY}
+      secure: l0wmjJK6CwfpKAn/+Lzyym4hdvYCgEUJSIy+MNNfhqeEB5c+mj5GEei0uVpj+YSdCQiRSztzKBQDKjP5HSbjwxtfMQL/zBfUjz7cum1Gg4858tm2EhmWvM67OIn6Ft5iVHlzubZbbR7UN2kzKAYDZKsVaTuZEhx9KjhVTFjvdkHsNpzWOw42tLc0ILAEjci9DmxJZ7wilMYGA7OYZi98QHc7JT/IpI8p2qH5uQ157YDsfrxrTKdME0wzIS1NvqXT2iKen2QlwF49TpSknLKToUoQkvZQ58AZcgzQHXtQd5FuungrOT/ePXvmBwOHHJhVYLW1roZoYngaOC7wQnoQrWmzn54CpS6vIK59JOxCWXKt8wOf5tty8kRk2pa8p7wAV6VAOkPbvZJGsDhw9RqNQaxC7hgf27lEGKuK/hicGQzWqGL181CNBAD0sg1Ha+Qhh0LG92sYyLCSdZybfHL6sW5YGDjQetFETT1NsKeNwNZUHvcdsPuPYFZtfi8qFo7KpKMJxiE0GzI0vPPGcahFbnWb9K1+38GueEkMEsAYJekUasCQsd0Zs4BXLzYtb2dpiOTi62iSYe/QAB354e7tptLYJ/KO0U8Dc7LN851LCfEwBgzXULi1/GREuYA=
   on:
     tags: true
