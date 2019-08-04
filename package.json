@@ -9,8 +9,8 @@
     "test": "jest",
     "doc": "jsdoc --destination documentation -r ./src/",
     "build": "npm run doc && npm run build:prod && npm run build:dev",
-    "build:prod": "webpack --mode production --output-filename [name].[hash].min.js",
-    "build:dev": "webpack --mode development --output-filename [name].[hash].js",
+    "build:prod": "webpack --mode production --output-filename clirest.min.js",
+    "build:dev": "webpack --mode development --output-filename clirest.js",
     "lint": "eslint . --ignore-path ./.eslintignore"
   },
   "person": {
