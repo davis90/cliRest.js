@@ -4,7 +4,7 @@
   "description": "Basic and Simple REST client",
   "homepage": "https://github.com/davis90/cliRest.js",
   "bugs": "https://github.com/davis90/cliRest.js/issues",
-  "main": "lib/cliRest.min.js",
+  "main": "lib/clirest.min.js",
   "scripts": {
     "test": "jest",
     "doc": "jsdoc --destination documentation -r ./src/",
