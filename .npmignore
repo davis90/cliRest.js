@@ -1,6 +1,7 @@
 .idea/
 coverage/
 documentation/
+doc/
 node_modules/
 src/
 test/
@@ -12,4 +13,3 @@ test/
 .travis.yml
 _config.yml
 webpack.config.js
-

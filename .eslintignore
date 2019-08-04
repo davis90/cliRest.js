@@ -1,5 +1,6 @@
 coverage/
 documentation/
+doc/
 lib/
 test/jest.setup.js
 .eslintrc.js
