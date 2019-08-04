@@ -29,22 +29,15 @@ api.addRessources('messages');
 
 ## More informations
 
-[Api informations](doc/api.md)
-[Crud informations](doc/Crud.md)
+[Api informations](doc/api.md)   
+[Crud informations](doc/crud.md)   
 
-[DefaultCrud code](src/crud/defaultCrud.js)
-[MergeCrudConfig code](src/crud/MergeCrudConfig.js)
-
+[interfaceCrud code](src/crud/interfaceCrud.js)   
+[DefaultCrud code](src/crud/defaultCrud.js)   
+[MergeCrudConfig code](src/crud/mergeCrudConfig.js)   
 
 ## Examples
 
-```
-## **Ressource**
-
-Because API is useless without ressources link
-
-```javascript
-import 'apiFactory' from 'cliRest.js';
-
-const api = apiFactory();
-```
+[First example](doc/example1.md)
+[Second example](doc/example2.md)
+[Third example](doc/example3.md)
