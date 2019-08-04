@@ -38,6 +38,6 @@ api.addRessources('messages');
 
 ## Examples
 
-[First example](doc/example1.md)
-[Second example](doc/example2.md)
-[Third example](doc/example3.md)
+[First example](doc/example1.md)   
+[Second example](doc/example2.md)   
+[Third example](doc/example3.md)   
