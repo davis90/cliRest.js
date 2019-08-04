@@ -3,14 +3,14 @@ node_js:
 - stable
 env:
 - DISPLAY=:99.0
+services:
+  - xvfb
 addons:
   apt:
     sources:
     - google-chrome
     packages:
     - google-chrome-stable
-before_install:
-- sh -e /etc/init.d/xvfb start
 install:
 - npm install
 script:
