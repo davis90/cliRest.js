@@ -1,7 +1,7 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 
-const libraryName = 'cliRest';
+const libraryName = 'clirest';
 const outputFile = `${libraryName}.js`;
 
 module.exports = {
