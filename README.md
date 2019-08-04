@@ -29,17 +29,16 @@ api.addRessources('messages');
 
 ## More informations
 
-Api informations
-Crud informations
+[Api informations](doc/api.md)
+[Crud informations](doc/Crud.md)
 
-DefaultCrud code
-MergeCrudConfig code
+[DefaultCrud code](src/crud/defaultCrud.js)
+[MergeCrudConfig code](src/crud/MergeCrudConfig.js)
 
 
 ## Examples
 
 ```
-
 ## **Ressource**
 
 Because API is useless without ressources link

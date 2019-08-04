@@ -1,6 +1,6 @@
 # Crud
 
-Crud object make requests on the API. An object is a crud object if it implements InterfaceCrud.
+Crud object make requests on the API. An object is a crud object if it implements [InterfaceCrud](src/crud/InterfaceCrud.js).
 
 
 ## CrudInterface

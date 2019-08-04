@@ -25,7 +25,7 @@ Options for crud object. Options can contain what you want to work with your cru
 ### crudConfigMerge
 Type: ```function```
 
-Function that merge crud config object. 
+Function that merge crud config object.
 
 Default: mergeCrudConfig
 
@@ -37,7 +37,7 @@ To be able to use ressources of api, you need to declare them on time.
 Type: ```string```
 
 name of the ressource. The name need to valid this function isRessourceName.
-Look the first and second example to see how to use it.
+Look the [first](example1.md) and [second example](example2.md) to see how to use it.
 
 ## options
 Type: ```object```
@@ -47,16 +47,16 @@ Object to configure the ressource.
 ### actionsConfig
 Type: ```object```
 
-actionsConfig define what kind of actions is possible on ressources. Look the third example to see how to use it.
+actionsConfig define what kind of actions is possible on ressources. Look the [third example](example3.md) to see how to use it.
 
 ### crudConfig
 Type: ```object```
 
-Options for crud object for the new ressource. Options can contain what you want to work with your crud implementation. 
+Options for crud object for the new ressource. Options can contain what you want to work with your crud implementation.
 
 ### ressourcePath
 Type: ```string```
 
 Ressource path is usefull when the path of data on the api is different of the name of the ressource.
-ressourcePath can contain many "{}" to define an id in url. Look the second example to see how to use it.
+ressourcePath can contain many "{}" to define an id in url. Look the [second example](example2.md) to see how to use it.
 If an actionsConfig is define, this options will be ignored.
