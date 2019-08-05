@@ -6,9 +6,7 @@ const outputFile = `${libraryName}.js`;
 
 module.exports = {
   target: "node",
-  entry: {
-    apiFactory: `${__dirname}/src/api/apiFactory.js`
-  },
+  entry: `${__dirname}/src/api/apiFactory.js`,
   output: {
     path: path.resolve(__dirname, 'lib'),
     filename: '[name].js',
@@ -31,11 +29,5 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin()
-  ],
-  optimization: {
-    splitChunks: {
-      name: "vendors",
-      chunks: 'all'
-    }
-  }
+  ]
 };

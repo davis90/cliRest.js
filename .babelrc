@@ -4,9 +4,8 @@
       "@babel/preset-env",
       {
         "corejs": 2,
-        "useBuiltIns": "entry"
+        "useBuiltIns": "usage"
       }
     ]
-  ],
-  "plugins": ["@babel/plugin-transform-runtime"]
+  ]
 }
