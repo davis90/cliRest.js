@@ -1,6 +1,6 @@
 {
   "name": "clirest.js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Basic and Simple REST client",
   "homepage": "https://github.com/davis90/cliRest.js",
   "bugs": "https://github.com/davis90/cliRest.js/issues",
@@ -23,33 +23,33 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.1.5",
-    "@babel/core": "^7.1.6",
-    "@babel/polyfill": "^7.2.5",
-    "@babel/preset-env": "^7.3.1",
-    "@babel/runtime": "^7.4.3",
-    "babel-jest": "^24.6.0",
-    "babel-loader": "^8.0.5",
-    "clean-webpack-plugin": "^2.0.1",
-    "coveralls": "^3.0.4",
+    "@babel/cli": "^7.8.0",
+    "@babel/core": "^7.8.0",
+    "@babel/polyfill": "^7.8.0",
+    "@babel/preset-env": "^7.8.0",
+    "@babel/runtime": "^7.8.0",
+    "babel-jest": "^25.5.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "coveralls": "^3.1.0",
     "cross-env": "^5.2.0",
-    "eslint": "^5.12.1",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-import-resolver-webpack": "^0.11.0",
     "eslint-plugin-import": "^2.15.0",
-    "jest": "^24.6.0",
-    "jest-fetch-mock": "^2.1.1",
-    "jsdoc": "^3.5.5",
-    "webpack": "^4.29.0",
-    "webpack-cli": "^3.2.1",
-    "webpack-merge": "^4.2.1"
+    "jest": "^25.5.0",
+    "jest-fetch-mock": "^3.0.0",
+    "jsdoc": "^3.6.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.0",
+    "webpack-merge": "^4.2.0"
   },
   "dependencies": {
-    "normalize-url": "^4.2.0",
-    "lodash": "^4.17.11"
+    "normalize-url": "^5.0.0",
+    "lodash": "^4.17.15"
   },
   "engines": {
-    "node": ">= 4.0.0",
-    "npm": ">= 3.0.0"
+    "node": ">= 6.0.0",
+    "npm": ">= 4.0.0"
   }
 }
