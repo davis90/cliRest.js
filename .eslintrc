@@ -1,8 +1,17 @@
 {
   "env": {
-  "browser": true
+    "browser": true
   },
   "extends": "airbnb-base",
+  "rules": {
+    "max-len": [
+      2,
+      {
+        "code": 120,
+        "ignoreComments": true
+      }
+    ]
+  },
   "settings": {
     "import/resolver": {
       "webpack": {

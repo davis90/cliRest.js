@@ -45,8 +45,7 @@
     "webpack-merge": "^4.2.0"
   },
   "dependencies": {
-    "normalize-url": "^5.0.0",
-    "lodash": "^4.17.15"
+    "normalize-url": "^5.0.0"
   },
   "engines": {
     "node": ">= 6.0.0",

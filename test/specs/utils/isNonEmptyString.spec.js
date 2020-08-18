@@ -2,7 +2,7 @@ import isNonEmptyString from '@/utils/isNonEmptyString';
 
 describe('isNonEmptyString', () => {
   it('Invalid types', () => {
-    [{}, null, undefined, [], 15, true].forEach((v) => {
+    [{}, NaN, null, undefined, [], 15, true, false].forEach((v) => {
       expect(isNonEmptyString(v)).toBe(false);
     });
   });

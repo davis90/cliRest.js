@@ -1,11 +1,10 @@
-import isNil from 'lodash/isNil';
-import isEmpty from 'lodash/isEmpty';
-import isString from 'lodash/isString';
-import isFunction from 'lodash/isFunction';
 import defaultCrud from '@/crud/defaultCrud';
 import ressourceFactory from '@/api/ressourceFactory';
 import mergeCrudConfig from '@/crud/mergeCrudConfig';
+import isNonEmptyString from '@/utils/isNonEmptyString';
 import isCrud from '@/utils/isCrud';
+import isFunction from '@/utils/isFunction';
+import isNil from '@/utils/isNil';
 
 const privateProps = new WeakMap();
 
@@ -88,7 +87,7 @@ class Api {
  */
 function apiFactory(url,
   { crud = defaultCrud, crudConfig, crudConfigMerge = mergeCrudConfig } = {}) {
-  if (!isString(url) || isEmpty(url)) {
+  if (!isNonEmptyString(url)) {
     throw TypeError('apiFactory : url must be a non-empty string');
   }
   if (isNil(crud) || !isCrud(crud)) {

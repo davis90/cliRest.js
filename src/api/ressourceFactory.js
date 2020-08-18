@@ -1,13 +1,12 @@
-import isNil from 'lodash/isNil';
-import isPlainObject from 'lodash/isPlainObject';
-import isEmpty from 'lodash/isEmpty';
-import defaultTo from 'lodash/defaultTo';
-import isString from 'lodash/isString';
 import actionFactory from '@/api/actionFactory';
 import mergeCrudConfig from '@/crud/mergeCrudConfig';
 import isRessourceName from '@/utils/isRessourceName';
 import isRessourcePath from '@/utils/isRessourcePath';
+import defaultTo from '@/utils/defaultTo';
 import isCrud from '@/utils/isCrud';
+import isNil from '@/utils/isNil';
+import isObject from '@/utils/isObject';
+import isNonEmptyString from '@/utils/isNonEmptyString';
 
 
 /**
@@ -41,7 +40,7 @@ function ressourceFactory(name, apiUrl, crud, {
   if (!isRessourceName(name)) {
     throw TypeError('ressourceFactory : name must be a non-empty string');
   }
-  if (!isString(apiUrl) || isEmpty(apiUrl)) {
+  if (!isNonEmptyString(apiUrl)) {
     throw TypeError('ressourceFactory : apiUrl must be a non-empty string');
   }
   if (isNil(crud) || !isCrud(crud)) {
@@ -50,8 +49,8 @@ function ressourceFactory(name, apiUrl, crud, {
   if (!isNil(path) && !isRessourcePath(path)) {
     throw TypeError('ressourceFactory : path of ressource must be a non-empty string');
   }
-  if (!isNil(actionsConfig) && !isPlainObject(actionsConfig)) {
-    throw TypeError('ressourceFactory : actionsConfig have to be a plain object');
+  if (!isNil(actionsConfig) && (!isObject(actionsConfig) || Array.isArray(actionsConfig))) {
+    throw TypeError('ressourceFactory : actionsConfig have to be a simple object');
   }
   const ressourcePath = defaultTo(path, name);
   const actionsConf = defaultTo(actionsConfig, getDefaultActionsConfig(ressourcePath));

@@ -1,5 +1,5 @@
-import isFunction from 'lodash/isFunction';
 import interfaceCrud from '@/crud/interfaceCrud';
+import isFunction from '@/utils/isFunction';
 
 /**
  * Check if value is a crud object

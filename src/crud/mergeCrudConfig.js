@@ -1,17 +1,41 @@
-import merge from 'lodash/merge';
-import isArray from 'lodash/isArray';
-import isObject from 'lodash/isObject';
+import isObject from '@/utils/isObject';
 
-/**
- * Merge two crud config objects in one
- * @param {Object} firstCrud - first crud config to merge
- * @param {Object} secondCrud - second crud config to merge
- * @returns {Object} merged crud config object
- */
-const mergeCrudConfig = (firstCrud, secondCrud) => {
-  const crud1 = isObject(firstCrud) && !isArray(firstCrud) ? firstCrud : {};
-  const crud2 = isObject(secondCrud) && !isArray(secondCrud) ? secondCrud : {};
-  return merge({}, crud1, crud2);
-};
+function deepMergeObjects(...sources) {
+  const filteredSources = sources.filter(isObject);
+  const result = {};
+  filteredSources.forEach((source) => {
+    Object.keys(source).forEach((key) => {
+      if (isObject(source[key])) {
+        const sourceTomerge = isObject(result[key]) ? result[key] : {};
+        result[key] = deepMergeObjects(sourceTomerge, source[key]);
+      } else if (Array.isArray(source[key])) {
+        const sourceTomerge = Array.isArray(result[key]) ? result[key] : [];
+        result[key] = deepMergeArrays(sourceTomerge, source[key]); // eslint-disable-line no-use-before-define
+      } else {
+        result[key] = source[key];
+      }
+    });
+  });
+  return result;
+}
 
-export default mergeCrudConfig;
+function deepMergeArrays(...sources) {
+  const filteredSources = sources.filter(Array.isArray);
+  const result = [];
+  filteredSources.forEach((source) => {
+    source.forEach((entry, ind) => {
+      if (isObject(entry)) {
+        const sourceTomerge = isObject(result[ind]) ? result[ind] : {};
+        result[ind] = deepMergeObjects(sourceTomerge, entry);
+      } else if (Array.isArray(entry)) {
+        const sourceTomerge = Array.isArray(result[ind]) ? result[ind] : [];
+        result[ind] = deepMergeArrays(sourceTomerge, entry);
+      } else {
+        result[ind] = entry;
+      }
+    });
+  });
+  return result;
+}
+
+export default (firstCrud, secondCrud) => deepMergeObjects(firstCrud, secondCrud);

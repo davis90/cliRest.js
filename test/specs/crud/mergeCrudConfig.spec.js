@@ -56,11 +56,37 @@ describe('mergeCrudConfig', () => {
     res = mergeCrudConfig({ method: 'POST' }, { method: 'GET', body: { test: 'test' } });
     expect(res.method).toBe('GET');
     expect(res.body.test).toBe('test');
-    res = mergeCrudConfig({ method: 'POST', body: { test2: 'test2' }, test2: 'test2' },
-      { body: { test: 'test' } });
+    res = mergeCrudConfig({ method: 'POST', body: { test2: 'test2', test3: [] }, test2: 'test2' },
+      { body: { test: 'test', test3: 'test3' } });
     expect(res.method).toBe('POST');
     expect(res.body.test).toBe('test');
     expect(res.body.test2).toBe('test2');
+    expect(res.body.test3).toBe('test3');
     expect(res.test2).toBe('test2');
+  });
+
+  it('with arrays', () => {
+    const res = mergeCrudConfig({ body: { test: [{ a: 'a' }, 2, 3] } },
+      { method: 'GET', body: { test: [{ b: 'b' }, 'test'] } });
+    expect(res.method).toBe('GET');
+    expect(res.body.test).toBeInstanceOf(Array);
+    expect(res.body.test).toHaveLength(3);
+    expect(res.body.test[0].a).toBe('a');
+    expect(res.body.test[0].b).toBe('b');
+    expect(res.body.test[1]).toBe('test');
+    expect(res.body.test[2]).toBe(3);
+  });
+
+  it('with array in array', () => {
+    const res = mergeCrudConfig({ body: { test: [{ a: 'a' }, [7, 8], 3] } },
+      { method: 'GET', body: { test: [{ b: 'b' }, ['test']] } });
+    expect(res.method).toBe('GET');
+    expect(res.body.test).toBeInstanceOf(Array);
+    expect(res.body.test).toHaveLength(3);
+    expect(res.body.test[0].a).toBe('a');
+    expect(res.body.test[0].b).toBe('b');
+    expect(res.body.test[1][0]).toBe('test');
+    expect(res.body.test[1][1]).toBe(8);
+    expect(res.body.test[2]).toBe(3);
   });
 });
