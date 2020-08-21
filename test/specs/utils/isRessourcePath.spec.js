@@ -18,8 +18,8 @@ describe('isRessourcePath', () => {
       'depots/rayons/{}/peintures//', 'depots/rayons/peintures//', 'm@isons/{}/pieces',
       '.reductions-impots', 'Voitures bleues/modeles/{}/notes',
       '(toitures)/styles', '#hastag/cagnotes', '€/{}/transformation'].forEach((v) => {
-      expect(isRessourcePath(v)).toBe(false);
-    });
+        expect(isRessourcePath(v)).toBe(false);
+      });
   });
 
   it('Valid strings', () => {
@@ -28,7 +28,7 @@ describe('isRessourcePath', () => {
       'depots/rayons/{}/{}/peintures/', 'Maisons/{}/pieces', 'reductions-impots/{}',
       'Voitures_bleues/modeles/{}/notes', 'toitures/styles',
       'euros/{}/transformation'].forEach((v) => {
-      expect(isRessourcePath(v)).toBe(true);
-    });
+        expect(isRessourcePath(v)).toBe(true);
+      });
   });
 });

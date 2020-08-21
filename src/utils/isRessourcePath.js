@@ -1,4 +1,4 @@
-import isNonEmptyString from './isNonEmptyString';
+import isNonEmptyString from '@/utils/isNonEmptyString';
 
 /**
  * Check if value is valid ressource path
