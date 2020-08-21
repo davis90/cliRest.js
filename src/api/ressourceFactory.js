@@ -8,7 +8,6 @@ import isNil from '@/utils/isNil';
 import isObject from '@/utils/isObject';
 import isNonEmptyString from '@/utils/isNonEmptyString';
 
-
 /**
  * Get default actions config object
  * @param {string} path -  url of the API

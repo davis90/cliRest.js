@@ -14,8 +14,8 @@ describe('isRessourceName', () => {
   it('Invalid strings', () => {
     ['dépots', 'm@isons', 'm@isons', '-reductions-impots', 'Voitures bleues',
       '(toitures)', '#hastag', '€'].forEach((v) => {
-        expect(isRessourceName(v)).toBe(false);
-      });
+      expect(isRessourceName(v)).toBe(false);
+    });
   });
 
   it('Valid strings', () => {

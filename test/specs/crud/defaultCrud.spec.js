@@ -8,7 +8,7 @@ describe('defaultCrud', () => {
     let error = `network error : ${url}`;
     fetch.mockRejectOnce(new Error(error), { status: 405 });
     await defaultCrud.create(url, { data: objectToCreate })
-      .catch(e => expect(e.message).toEqual(error));
+      .catch((e) => expect(e.message).toEqual(error));
 
     url = 'https://cliRest.js/tes_t/1';
     error = 'unknown url';
@@ -53,7 +53,7 @@ describe('defaultCrud', () => {
     let error = `network error : ${url}`;
     fetch.mockRejectOnce(new Error(error), { status: 405 });
     await defaultCrud.read(url)
-      .catch(e => expect(e.message).toEqual(error));
+      .catch((e) => expect(e.message).toEqual(error));
 
     url = 'http://cliRest.js/tes_t/1';
     error = 'unknown url';
@@ -110,7 +110,7 @@ describe('defaultCrud', () => {
     let error = `network error : ${url}`;
     fetch.mockRejectOnce(new Error(error), { status: 405 });
     await defaultCrud.delete(url)
-      .catch(e => expect(e.message).toEqual(error));
+      .catch((e) => expect(e.message).toEqual(error));
 
     url = 'http://cliRest.js/tes_t/1';
     error = 'unknown url';
@@ -154,7 +154,7 @@ describe('defaultCrud', () => {
     const objectToUpdate = { id: '4', name: 'test 4!' };
     fetch.mockRejectOnce(new Error(error), { status: 405 });
     await defaultCrud.modify(url, { data: objectToUpdate })
-      .catch(e => expect(e.message).toEqual(error));
+      .catch((e) => expect(e.message).toEqual(error));
 
     url = 'http://cliRest.js/tes_t/1';
     error = 'unknown url';
@@ -200,7 +200,7 @@ describe('defaultCrud', () => {
     const objectToUpdate = { id: '4', name: 'test 4!' };
     fetch.mockRejectOnce(new Error(error), { status: 405 });
     await defaultCrud.replace(url, { data: objectToUpdate })
-      .catch(e => expect(e.message).toEqual(error));
+      .catch((e) => expect(e.message).toEqual(error));
 
     url = 'http://cliRest.js/tes_t/1';
     error = 'unknown url';
