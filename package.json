@@ -1,6 +1,6 @@
 {
   "name": "clirest.js",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Basic and Simple REST client",
   "homepage": "https://github.com/davis90/cliRest.js",
   "bugs": "https://github.com/davis90/cliRest.js/issues",
